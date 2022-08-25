@@ -4,6 +4,7 @@ function createTable() {
     playgraundTable.setAttribute("id", "myTable");
     document.getElementsByClassName("container")[0].appendChild(playgraundTable);
 
+    /* создаем таблицу 10х10 */
     for (let i = 0; i < 10; i++) {
         var playgraundTableRows = document.createElement("TR");
         playgraundTableRows.setAttribute("id", "myTr" + i);
@@ -11,9 +12,13 @@ function createTable() {
 
         for (let i = 0; i < 10; i++) {
             var playgraundTableCols = document.createElement("TD");
-            playgraundTableCols.setAttribute('id', 'MyTd' + i)
             playgraundTableRows.appendChild(playgraundTableCols);
         }
     }
 
+    /* задаем каждой ячейке индивидуальный Id */
+    for(let i = 0; i < 100; i++){
+        var tddd = document.getElementsByTagName('TD')[i];
+        tddd.setAttribute('id', 'cell' + i); 
+    }
 }

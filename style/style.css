@@ -1,5 +1,6 @@
 table {
     border: 1px solid black;
+    border-radius: 5px;
     width: 500px;
     height: 500px;
 }
@@ -14,4 +15,11 @@ td {
     border: 1px solid rgb(103, 93, 178);
     width: 10px;
     height: 10px;
+    border-radius: 5px;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
 }
