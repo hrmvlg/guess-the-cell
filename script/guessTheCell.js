@@ -20,6 +20,7 @@ function createTable() {
         var cell = document.getElementsByTagName('TD')[i];
         cell.setAttribute('id', i);
         cell.setAttribute('onclick', 'usersСellSelection(this.id)');
+        //cell.setAttribute('onmouseover', 'usersСellSelection(this.id)');
     }
 }
 
@@ -49,21 +50,29 @@ function shuffle(randomNumbersArray) {
 }
 
 shuffle(randomNumbersArray);
-randomNumbersArray = randomNumbersArray.slice(0, 10); 
+randomNumbersArray = randomNumbersArray.slice(0, 10);
 console.log(randomNumbersArray);
 
 function usersСellSelection(clicked_id) {
-
     var cellId = parseInt(clicked_id);
     var cellToHighlight = document.getElementById(cellId);
 
     for (var i = 0; i < randomNumbersArray.length; i++) {
-        if (randomNumbersArray[i] === cellId) {
+        if (cellToHighlight.classList.contains('green')) break;
+        else if (randomNumbersArray[i] === cellId) {
             cellToHighlight.setAttribute('class', 'green');
-            break;
-
+            Win();
         } else {
             cellToHighlight.setAttribute('class', 'red');
         }
+    }
+}
+
+var counter = 0;
+function Win() {
+    console.log(counter);
+    counter++;
+    if (counter == 10) {
+        console.log("Вы нашли все ячейки!");
     }
 }
