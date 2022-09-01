@@ -1,5 +1,4 @@
 function createTable() {
-    console.log('hemlo');
     var playgraundTable = document.createElement("TABLE");
     playgraundTable.setAttribute("id", "myTable");
     document.getElementsByClassName("container")[0].appendChild(playgraundTable);
@@ -17,8 +16,29 @@ function createTable() {
     }
 
     /* задаем каждой ячейке индивидуальный Id */
-    for(let i = 0; i < 100; i++){
-        var tddd = document.getElementsByTagName('TD')[i];
-        tddd.setAttribute('id', 'cell' + i); 
+    for (let i = 0; i < 100; i++) {
+        var cell = document.getElementsByTagName('TD')[i];
+        cell.setAttribute('id', i);
+        cell.setAttribute('onclick', 'usersСellSelection(this.id)');
+    }
+}
+
+var randomNumbers = Array.from({length: 10}, () => Math.floor(Math.random() * 99));
+console.log(randomNumbers);
+
+function usersСellSelection(clicked_id) {
+
+    var cellId = parseInt(clicked_id);
+    var cellToHighlight = document.getElementById(cellId);
+
+    for (var i = 0; i < randomNumbers.length; i++) 
+    {
+        if (randomNumbers[i] === cellId) {    
+            cellToHighlight.setAttribute('class', 'green');
+            break;
+        
+        } else {
+            cellToHighlight.setAttribute('class', 'red');
+        }
     }
 }
