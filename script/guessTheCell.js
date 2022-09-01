@@ -23,20 +23,45 @@ function createTable() {
     }
 }
 
-var randomNumbers = Array.from({length: 10}, () => Math.floor(Math.random() * 99));
-console.log(randomNumbers);
+var start = 99;
+var randomNumbersArray = [];
+while (start >= 0) {
+    randomNumbersArray.push(start--);
+}
+
+function shuffle(randomNumbersArray) {
+    let currentIndex = randomNumbersArray.length,
+        randomIndex;
+
+    while (currentIndex != 0) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+        [
+            randomNumbersArray[currentIndex],
+            randomNumbersArray[randomIndex]
+        ] = [
+            randomNumbersArray[randomIndex],
+            randomNumbersArray[currentIndex]
+        ];
+    }
+
+    return randomNumbersArray;
+}
+
+shuffle(randomNumbersArray);
+randomNumbersArray = randomNumbersArray.slice(0, 10); 
+console.log(randomNumbersArray);
 
 function usersСellSelection(clicked_id) {
 
     var cellId = parseInt(clicked_id);
     var cellToHighlight = document.getElementById(cellId);
 
-    for (var i = 0; i < randomNumbers.length; i++) 
-    {
-        if (randomNumbers[i] === cellId) {    
+    for (var i = 0; i < randomNumbersArray.length; i++) {
+        if (randomNumbersArray[i] === cellId) {
             cellToHighlight.setAttribute('class', 'green');
             break;
-        
+
         } else {
             cellToHighlight.setAttribute('class', 'red');
         }
