@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/style.css">
-    <script src="script/guessTheCell.js"></script>
+    <script src="script/guessTheCell.js"defer></script>
     <title>"Угадай ячейку"</title>
 </head>
+
 <body onload="createTable()" onload="planAcell()">
+
     <div class="container">
         <div class="title">Угадайте 10 ячеек, которые загадал компьютер!</div>
     </div>
+    <div class="time">
+        <button class="start" id="start">Старт</button>
+        <span class="displayTimer"></span>
+    </div>
 </body>
+
 </html>
